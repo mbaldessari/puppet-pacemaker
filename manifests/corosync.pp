@@ -160,7 +160,7 @@ class pacemaker::corosync(
     # pcs-0.10.x has different commands to set up the cluster
     if $pcs_010 {
       $cluster_setup_cmd = "${::pacemaker::pcs_bin} cluster setup ${cluster_name} ${cluster_members_rrp_real}"
-      $cluster_reauthenticate_cmd = "${::pacemaker::pcs_bin} host auth ${cluster_members} -u hacluster -p ${::pacemaker::hacluster_pwd} --force"
+      $cluster_reauthenticate_cmd = "${::pacemaker::pcs_bin} host auth ${cluster_members} -u hacluster -p ${::pacemaker::hacluster_pwd}"
       $cluster_authenticate_cmd = "${::pacemaker::pcs_bin} host auth ${cluster_members} -u hacluster -p ${::pacemaker::hacluster_pwd}"
       $cluster_authenticate_unless = "${::pacemaker::pcs_bin} host auth ${cluster_members} -u hacluster -p ${::pacemaker::hacluster_pwd} | grep 'Already authorized'"
     } else {
